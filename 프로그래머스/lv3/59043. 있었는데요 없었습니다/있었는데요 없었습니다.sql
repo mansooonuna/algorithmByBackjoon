@@ -1,7 +1,8 @@
--- 코드를 입력하세요
-SELECT i.animal_id, i.name from animal_ins i
-left join animal_outs o
-on i.animal_id = o.animal_id
-where i.datetime > o.datetime
-order by i.datetime asc
 
+SELECT 
+ins.animal_id, ins.name -- , ins.datetime, outs.datetime, datediff(ins.datetime, outs.datetime)
+from animal_ins as ins
+inner join animal_outs as outs
+on ins.animal_id = outs.animal_id
+where timediff(outs.datetime, ins.datetime) < 0
+order by ins.datetime;
