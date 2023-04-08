@@ -15,8 +15,6 @@ public class Main {
         }
         bw.write("<");
 
-        // K번째 수를 q에서 꺼내어 bw에 담고 q에서 remove
-        // q.size()==1 이 될 때까지
         while (!q.isEmpty()) {
             for (int i = 0; i < K; i++) {
                 if ( i == K - 1) {
