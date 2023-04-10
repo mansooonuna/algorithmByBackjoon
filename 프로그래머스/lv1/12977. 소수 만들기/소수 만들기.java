@@ -5,7 +5,7 @@ static List<Integer> sumList = new ArrayList<>();
 
     public int solution(int[] nums) {
         int answer = 0;
-        // 합을 저장할 배열
+        // 조합을 구현할때 체크할 boolean 배열
         boolean[] b = new boolean[nums.length];
         // 3개의 숫자를 중복 없이 선택 후 sum에 합함
         combination(nums, b, 0, nums.length, 3);
