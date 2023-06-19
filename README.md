@@ -1,3 +1,4 @@
-# 킹고리즘
+# 킹고리즘 👑
 
-This is a auto push repository for Baekjoon Online Judge created with [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub).
+알고리즘 천재가 되는 그 날까지..!<br>
+열심히 달려보겠습니다.
