@@ -1,72 +1,36 @@
 import java.io.*;
-import java.util.*;
+import java.util.Stack;
 
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-
         int N = Integer.parseInt(br.readLine());
-        MyStack stk = new MyStack();
-
+        Stack<String> stack = new Stack<>();
         for (int i = 0; i < N; i++) {
-            String cmd = br.readLine();
-
-            switch (cmd) {
+            String[] cmd = br.readLine().split(" ");
+            switch (cmd[0]) {
+                case "push":
+                    stack.push(cmd[1]);
+                    break;
                 case "pop":
-                    bw.write(stk.pop() + "\n");
+                    if (stack.isEmpty()) bw.write("-1" + "\n");
+                    else bw.write(stack.pop() + "\n");
                     break;
                 case "size":
-                    bw.write(stk.size()+ "\n");
+                    bw.write(stack.size() + "\n");
                     break;
                 case "empty":
-                    bw.write(stk.empty()+ "\n");
-                    break;
-                case "top":
-                    bw.write(stk.top()+ "\n");
+                    if (stack.isEmpty()) bw.write("1" + "\n");
+                    else bw.write("0" + "\n");
                     break;
                 default:
-                    String[] arr = cmd.split(" ");
-                    stk.push(Integer.parseInt(arr[1]));
+                    if (stack.isEmpty()) bw.write("-1" + "\n");
+                    else bw.write(stack.peek() + "\n");
                     break;
             }
         }
-
         bw.flush();
         bw.close();
-        br.close();
-
-
-    }
-
-}
-
-class MyStack {
-    ArrayList<Integer> MyStack = new ArrayList<>();
-
-    void push(int x) {
-        this.MyStack.add(x);
-    }
-
-    int pop() {
-        if (!this.MyStack.isEmpty()) {
-            int p = this.MyStack.get(this.MyStack.size() - 1);
-            this.MyStack.remove(this.MyStack.size() - 1);
-            return p;
-        } else return -1;
-    }
-
-    int size() {
-        return this.MyStack.size();
-    }
-
-    int empty() {
-        if (this.MyStack.isEmpty()) return 1;
-        else return 0;
-    }
-
-    int top() {
-        if (this.MyStack.isEmpty()) return -1;
-        else return this.MyStack.get(this.MyStack.size() - 1);
     }
 }
