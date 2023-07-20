@@ -14,7 +14,7 @@ public class Main {
             StringTokenizer st = new StringTokenizer(br.readLine());
             int x = Integer.parseInt(st.nextToken());
             int r = Integer.parseInt(st.nextToken());
-            list.add(new int[]{x - r, x + r}); // 시작점, 끝점 저장
+            list.add(new int[]{x - r, x + r}); // 원 지름의 시작점, 끝점 저장
         }
 
         // list 오름차순으로 정렬 (순서대로 비교하기 위함)
