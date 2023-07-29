@@ -1,32 +1,26 @@
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.*;
 
-/**
- * 손님의 등수는 바뀔 수 있다.
- * 그 때의 최댓값을 구해야한다.
- */
+import static java.util.Comparator.reverseOrder;
+
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
-
-        ArrayList<Integer> tips = new ArrayList<>();
+        Integer[] arr = new Integer[N];
         for (int i = 0; i < N; i++) {
-            tips.add(Integer.parseInt(br.readLine()));
+            arr[i] = Integer.parseInt(br.readLine());
         }
-
-        // 최댓값 구하기 위해 내림차순 정렬
-        tips.sort(Collections.reverseOrder());
-
+        Arrays.sort(arr, reverseOrder());
         long totalTip = 0;
         for (int i = 0; i < N; i++) {
-            int realTip = tips.get(i) - i;
-            if (realTip > 0) {
-                totalTip += realTip;
-            }
+            long tip = arr[i] -i;
+            if (tip < 0) tip = 0;
+
+            totalTip += tip;
         }
-
         System.out.println(totalTip);
-
     }
 }
