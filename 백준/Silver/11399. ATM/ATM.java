@@ -8,25 +8,19 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
-
-        int[] times = new int[N];
+        int totalTime = 0;
 
         StringTokenizer st = new StringTokenizer(br.readLine());
+        int[] personTime = new int[N];
+        for (int i = 0; i < N; i++) personTime[i] = Integer.parseInt(st.nextToken());
+        Arrays.sort(personTime);
+
+        int tmp = 0;
         for (int i = 0; i < N; i++) {
-            times[i] = Integer.parseInt(st.nextToken());
+            totalTime += tmp + personTime[i];
+            tmp += personTime[i];
         }
 
-        Arrays.sort(times);
-
-        int sum = 0;
-        int ans = 0;
-        for (int i = 0; i < N; i++) {
-            ans += sum + times[i];
-            sum += times[i];
-        }
-
-        System.out.println(ans);
-
-
+        System.out.println(totalTime);
     }
 }
