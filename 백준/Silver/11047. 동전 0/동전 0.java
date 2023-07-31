@@ -6,28 +6,23 @@ import java.util.StringTokenizer;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-
+        StringTokenizer st = new StringTokenizer(br.readLine());
         int N = Integer.parseInt(st.nextToken());
         int K = Integer.parseInt(st.nextToken());
 
-        int result = 0;
-
-        // 동전 받을 배열
-        int[] coin = new int[N];
-
-        // 동전 배열 입력받아 채움
+        int coinCount = 0;
+        int[] coins = new int[N];
         for (int i = 0; i < N; i++) {
-            coin[i] = Integer.parseInt(br.readLine());
+            coins[i] = Integer.parseInt(br.readLine());
         }
 
-        for (int i = coin.length-1; i >= 0; i--) {
-            if ( coin[i] <= K ) {
-                result += K / coin[i]; // 4200원 / 1000원 몫을 result에 더해주고
-                K = K % coin[i]; // 나머지값을 K로 변경 후 반복
+        for (int i = N - 1; i >= 0; i--) {
+            if (coins[i] <= K) {
+                coinCount += K / coins[i];
+                K = K % coins[i];
             }
         }
 
-        System.out.println(result);
+        System.out.println(coinCount);
     }
 }
