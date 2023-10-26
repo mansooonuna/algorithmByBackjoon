@@ -11,7 +11,7 @@ class Main {
         int n = Integer.parseInt(br.readLine());
         StringTokenizer st = new StringTokenizer(br.readLine());
         int[] a = new int[n];
-        int length = 0;
+        long length = 0;
         for (int i = 0; i < n; i++) {
             a[i] = Integer.parseInt(st.nextToken());
             length += a[i];
@@ -19,7 +19,7 @@ class Main {
 
         Arrays.sort(a);
 
-        int cost = 0;
+        long cost = 0;
         for (int i = n - 1; i >= 0; i--) {
             length -= a[i];
             cost += a[i] * length;
