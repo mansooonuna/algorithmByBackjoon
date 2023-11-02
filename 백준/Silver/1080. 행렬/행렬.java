@@ -51,7 +51,8 @@ public class Main {
     static void flip(int x, int y) {
         for (int i = x; i < x + 3; i++) {
             for (int j = y; j < y + 3; j++) {
-                A[i][j] = 1 - A[i][j];
+                if (A[i][j] == 1) A[i][j] = 0;
+                else A[i][j] = 1;
             }
         }
     }
