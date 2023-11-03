@@ -21,7 +21,6 @@ public class Main {
             dp[i] = 1;
             for (int j = 0; j < i; j++) {
                 if (arr[i] < arr[j] && dp[i] <= dp[j]) dp[i] = dp[j] + 1;
-                else if (arr[i] == arr[j]) dp[i] = dp[j];
             }
         }
 
