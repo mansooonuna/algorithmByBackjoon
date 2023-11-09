@@ -12,12 +12,14 @@ public class Main {
 
         int[] times = new int[N];
         st = new StringTokenizer(br.readLine());
+        int max = Integer.MIN_VALUE;
         for (int i = 0; i < N; i++) {
             times[i] = Integer.parseInt(st.nextToken());
+            max = Math.max(max, times[i]);
         }
 
         long left = 0;
-        long right = 1_000_000L * M; // 제일 오래 걸리는 시간 * 필요한 풍선 개수
+        long right = (long) max * M; // 제일 오래 걸리는 시간 * 필요한 풍선 개수
 
         long rs = 0;
         while (left <= right) {
