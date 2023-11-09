@@ -22,7 +22,6 @@ public class Main {
             // 해당 위치에 이미 화살이 있다
             if (arrows[balloon] > 0) {
                 arrows[balloon]--; // 현재 위치 화살 없애고
-//                if (balloon == 0) return;
                 arrows[balloon - 1]++; // 현재 위치 -1 에 화살 추가함
             }
             else {
